@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { --navy: #07111f; --surface: #0d1b2a; --surface-2: #13263a; --line: #20354a; --muted: #8da2b8; --blue: #4f8cff; --green: #22c55e; }
+* { box-sizing: border-box; }
+html { background: var(--navy); }
+body { margin: 0; background: var(--navy); color: #f8fafc; font-size: 14px; line-height: 1.5; }
+button, input { font: inherit; }
+button { cursor: pointer; }
+::selection { background: rgba(79,140,255,.35); }
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--navy); }
+::-webkit-scrollbar-thumb { background: #2b4662; border-radius: 999px; }
+.app-shell { min-height: 100vh; background: radial-gradient(circle at 80% -10%, rgba(79,140,255,.08), transparent 33%), var(--navy); }
+.sidebar { background: rgba(9,23,38,.92); border-right: 1px solid var(--line); }
+.surface { background: rgba(13,27,42,.82); border: 1px solid var(--line); }
+.surface:hover { border-color: #34516e; }
+.nav-button { color: #8da2b8; transition: all .18s ease; }
+.nav-button:hover, .nav-button.active { color: #fff; background: rgba(79,140,255,.12); }
+.nav-button.active { box-shadow: inset 3px 0 #4f8cff; }
+.kpi-card { transition: transform .2s ease, border-color .2s ease; }
+.kpi-card:hover { transform: translateY(-2px); border-color: #426383; }
+.data-row { transition: background .18s ease; }
+.data-row:hover { background: rgba(79,140,255,.055); }
+.chart-grid { background-image: linear-gradient(rgba(148,163,184,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(148,163,184,.08) 1px, transparent 1px); background-size: 100% 25%; }
+.pulse-dot { animation: pulse 2s infinite; }
+@keyframes pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(34,197,94,.35); } 50% { box-shadow: 0 0 0 6px rgba(34,197,94,0); } }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+@media (max-width: 1024px) { .sidebar { width: 76px; } .sidebar-label { display: none; } .brand-copy { display: none; } }
+@media (max-width: 700px) { .sidebar { position: fixed; inset: 0 auto 0 0; z-index: 30; width: 256px; transform: translateX(-100%); transition: transform .2s ease; } .sidebar.open { transform: translateX(0); } .sidebar-label, .brand-copy { display: block; } .content { margin-left: 0 !important; } .mobile-overlay { display: block; } }
